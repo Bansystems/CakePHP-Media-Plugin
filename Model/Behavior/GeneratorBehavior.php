@@ -169,7 +169,7 @@ class GeneratorBehavior extends ModelBehavior {
 		list($file, $relativeFile) = $this->_file($Model, $file);
 		$relativeDirectory = DS . rtrim(dirname($relativeFile), '.');
 
-		$filter = $this->filter($Model, $file);
+		$filter = $Model->filter($file);
 		$result = true;
 
 		foreach ($filter as $version => $instructions) {
