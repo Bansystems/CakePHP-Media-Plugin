@@ -318,7 +318,8 @@ class Media_Process_Adapter_Gd extends Media_Process_Adapter {
 	}
 
 	protected function _isTransparent($image) {
-		return imageColorTransparent($image) >= 0;
+		$transparent = imageColorTransparent($image);
+		return $transparent >= 0 && $transparent < imagecolorstotal($image);
 	}
 
 	protected function _adjustTransparency(&$source, &$target) {
